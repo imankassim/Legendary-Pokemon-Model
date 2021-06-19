@@ -90,15 +90,16 @@ model.fit(train_data, train_labels, epochs=400)
 loss_value, accuracy_value = model.evaluate(test_data, test_labels)
 print(f'Our test accuracy was {accuracy_value}')
 
-type = "not a Legendary Pokemon"
+
 
 #test prediction using test data
 def predictor(test_data, test_labels, index):
     prediction = model.predict(test_data)
     if np.argmax(prediction[index]) == test_labels[index]:
+        type = "not be a Legendary Pokemon"
         if test_labels[index] == 1:
-            type = "a Legendary Pokemon"
-        print('This was correctly predicted to be ', type)
+            type = "be a Legendary Pokemon"
+        print('This was correctly predicted to', type)
 
     else:
         print('This was incorrectly predicted by the model.')
